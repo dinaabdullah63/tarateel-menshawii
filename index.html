@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="description" content="استمع إلى ترتيل القرآن الكريم بصوت الشيخ محمد صديق المنشاوي. تلاوات نادرة ومصحف مرتل ومجود وفيديوهات قصيرة.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="keywords" content="تراتيل منشاوية,محمد صديق المنشاوي,المنشاوي, المصحف المرتل , تلاوات نادرة, قران كريم, تلاوة, الشيخ المنشاوي
+  ,موقع قران كرريم ,موقع تلاوات المنشاوي">
+    <title>تراتيل منشاوية</title>
+
+    <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <div class="stars"></div>
+  <div class="twinkling"></div>
+  
+  <header class="hero">
+    <div class="hero-pattern"></div>
+    <div class="overlay">
+      <div class="hero-content">
+        <div class="islamic-ornament top"></div>
+<h1><span class="highlight" style="color: white;">🌿 تراتيل منشاوية 🌿</span></h1>
+        <div class="divider"></div>
+        <p class="hero-subtitle">هذا العَمَلُ خالصٌ لِوَجه اللهِ تعالي مِنْ مُحِبَّةٌ مَنشاويَّةٌ</p>
+        <div class="islamic-ornament bottom"></div>
+      </div>
+    </div>
+    <div class="scroll-indicator">
+      <div class="scroll-arrow"></div>
+    </div>
+  </header>
+
+  <main class="sections-container">
+    <div class="section-header">
+      <h2 class="section-title">
+        <span class="title-ornament">✦</span>
+        اختر ما تريد الإستماع إليه
+        <span class="title-ornament">✦</span>
+      </h2>
+    </div>
+    
+    <div class="cards-grid">
+      <section class="card" onclick="goToPage('about.html')" data-category="info">
+        <div class="card-glow"></div>
+        <div class="card-icon">
+          <i class="fas fa-user-tie"></i>
+        </div>
+        <h3>عن الشيخ</h3>
+        <p>نبذة عن حياة شيخنا الجليل</p>
+        <div class="card-footer">
+          <span class="read-more">اقرأ المزيد <i class="fas fa-arrow-left"></i></span>
+        </div>
+      </section>
+
+      <section class="card featured" onclick="goToPage('moshaf.html')" data-category="quran">
+        <div class="card-glow"></div>
+        <div class="card-icon">
+          <i class="fas fa-book-quran"></i>
+        </div>
+        <h3>الْمُصْحَفَ الْمُرَتَّلُ</h3>
+        <p>استمع للمصحف المرتل للشيخ المنشاوي</p>
+        <div class="featured-badge">الأكثر استماعاً</div>
+        <div class="card-footer">
+          <span class="read-more">استمع الآن <i class="fas fa-play"></i></span>
+        </div>
+      </section>
+
+      <section class="card" onclick="goToPage('mojawd.html')" data-category="quran">
+        <div class="card-glow"></div>
+        <div class="card-icon">
+          <i class="fas fa-quran"></i>
+        </div>
+        <h3>الْمُصْحَفَ الْمُجَوِّدَ</h3>
+        <p>استمع للمصحف المجود للشيخ المنشاوي</p>
+        <div class="card-footer">
+          <span class="read-more">استمع الآن <i class="fas fa-play"></i></span>
+        </div>
+      </section>
+
+      <section class="card" onclick="goToPage('video.html')" data-category="media">
+        <div class="card-glow"></div>
+        <div class="card-icon">
+          <i class="fas fa-video"></i>
+        </div>
+        <h3>فيديوهات قصيرة</h3>
+        <p>استمع وشاهد الفيديوهات القصيرة</p>
+        <div class="card-footer">
+          <span class="read-more">شاهد الآن <i class="fas fa-play-circle"></i></span>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-pattern"></div>
+    <div class="footer-content">
+      <div class="footer-ornament"></div>
+      <h3>تراتيل منشاوية</h3>
+      <p>لَا تَنْسَوْنَا مِنْ صَالِح دُعَائِكُمْ</p>
+      <div class="footer-divider"></div>
+      <div class="footer-quote">
+        <i class="fas fa-quote-right"></i>
+        <span>وَرَتِّلِ الْقُرْآنَ تَرْتِيلًا</span>
+        <i class="fas fa-quote-left"></i>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

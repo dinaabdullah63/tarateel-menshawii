@@ -1,0 +1,1059 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>فيديوهات الشيخ المنشاوي</title>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --primary-green: #0d5f3c;
+      --secondary-green: #10b981;
+      --accent-gold: #d4af37;
+      --light-green: #f0fdf4;
+      --text-dark: #1f2937;
+      --text-light: #6b7280;
+      --white: #ffffff;
+      --gradient-primary: linear-gradient(135deg, #0d5f3c 0%, #10b981 100%);
+      --gradient-gold: linear-gradient(135deg, #d4af37 0%, #f59e0b 100%);
+    }
+
+    body {
+      font-family: 'Cairo', sans-serif;
+      background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 50%, #f1f5f9 100%);
+      color: var(--text-dark);
+      line-height: 1.7;
+      min-height: 100vh;
+      position: relative;
+    }
+
+    /* خلفية النجوم المتحركة */
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="0.5" fill="%23d4af37" opacity="0.3"/><circle cx="80" cy="40" r="0.3" fill="%23ffffff" opacity="0.4"/></svg>') repeat;
+      background-size: 200px 200px;
+      animation: float-stars 40s linear infinite;
+      z-index: -1;
+    }
+
+    @keyframes float-stars {
+      from { transform: translateY(0px); }
+      to { transform: translateY(-2000px); }
+    }
+
+    .header-section {
+      background: var(--gradient-primary);
+      padding: 4em 2em;
+      text-align: center;
+      color: white;
+      position: relative;
+      overflow: hidden;
+      margin-bottom: 3em;
+    }
+
+    .header-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M50 10 L60 40 L90 40 L68 58 L78 88 L50 70 L22 88 L32 58 L10 40 L40 40 Z" fill="none" stroke="%23d4af37" stroke-width="0.5" opacity="0.2"/></svg>') repeat;
+      background-size: 100px 100px;
+      animation: float-pattern 20s ease-in-out infinite;
+    }
+
+    @keyframes float-pattern {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-10px) rotate(2deg); }
+    }
+
+    .header-ornament {
+      width: 100px;
+      height: 4px;
+      background: var(--gradient-gold);
+      margin: 0 auto 2em auto;
+      border-radius: 2px;
+      position: relative;
+    }
+
+    .header-ornament::before,
+    .header-ornament::after {
+      content: '✦';
+      position: absolute;
+      color: var(--accent-gold);
+      font-size: 1.5em;
+      top: -12px;
+    }
+
+    .header-ornament::before { left: -25px; }
+    .header-ornament::after { right: -25px; }
+
+    h1 {
+      font-family: 'Amiri', serif;
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 0.5em;
+      text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+      position: relative;
+      z-index: 2;
+      animation: glow-text 3s ease-in-out infinite alternate;
+    }
+
+    @keyframes glow-text {
+      from { text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3); }
+      to { text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3), 0 0 30px rgba(212, 175, 55, 0.4); }
+    }
+
+    .back-button {
+      position: fixed;
+      top: 30px;
+      right: 30px;
+      background: var(--gradient-primary);
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      font-size: 1.5em;
+      cursor: pointer;
+      box-shadow: 0 10px 30px rgba(13, 95, 60, 0.3);
+      transition: all 0.3s ease;
+      z-index: 1000;
+    }
+
+    .back-button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 40px rgba(13, 95, 60, 0.4);
+    }
+
+    .videos-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 2em;
+      margin: 0 auto 4em auto;
+      max-width: 1400px;
+      padding: 0 2em;
+    }
+
+    .video-card {
+      background: var(--white);
+      border-radius: 20px;
+      padding: 1.5em;
+      box-shadow: 0 10px 40px rgba(13, 95, 60, 0.1);
+      border: 1px solid rgba(16, 185, 129, 0.1);
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .video-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: var(--gradient-primary);
+      transform: scaleX(0);
+      transition: transform 0.5s ease;
+    }
+
+    .video-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .video-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 60px rgba(13, 95, 60, 0.15);
+      border-color: rgba(16, 185, 129, 0.3);
+    }
+
+    .video-card h3 {
+      font-family: 'Amiri', serif;
+      margin-bottom: 1em;
+      font-size: 1.2em;
+      color: var(--primary-green);
+      text-align: center;
+      font-weight: 600;
+      line-height: 1.4;
+      position: relative;
+      padding-bottom: 0.5em;
+    }
+
+    .video-card h3::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 40px;
+      height: 2px;
+      background: var(--gradient-gold);
+      border-radius: 1px;
+    }
+
+    .video-wrapper {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      overflow: hidden;
+      border-radius: 15px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+    }
+
+    .video-wrapper:hover {
+      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
+      transform: scale(1.02);
+    }
+
+    .video-wrapper::before {
+      content: '';
+      position: absolute;
+      top: -2px;
+      left: -2px;
+      right: -2px;
+      bottom: -2px;
+      background: var(--gradient-gold);
+      border-radius: 17px;
+      z-index: -1;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .video-wrapper:hover::before {
+      opacity: 1;
+    }
+
+    .video-wrapper video {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+      border-radius: 15px;
+    }
+
+    .play-overlay {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 80px;
+      height: 80px;
+      background: rgba(13, 95, 60, 0.8);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 2em;
+      opacity: 0;
+      transition: all 0.3s ease;
+      pointer-events: none;
+      z-index: 10;
+    }
+
+    .video-wrapper:hover .play-overlay {
+      opacity: 1;
+    }
+
+    .thank-you {
+      background: var(--white);
+      border: 3px solid var(--secondary-green);
+      border-radius: 25px;
+      padding: 3em 2em;
+      text-align: center;
+      margin: 4em auto;
+      max-width: 600px;
+      box-shadow: 0 15px 50px rgba(13, 95, 60, 0.1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .thank-you::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="2" fill="%2310b981" opacity="0.05"/></svg>') repeat;
+      background-size: 50px 50px;
+    }
+
+    .thank-you-ornament {
+      width: 80px;
+      height: 4px;
+      background: var(--gradient-gold);
+      margin: 0 auto 2em auto;
+      border-radius: 2px;
+      position: relative;
+    }
+
+    .thank-you-ornament::before,
+    .thank-you-ornament::after {
+      content: '✦';
+      position: absolute;
+      color: var(--accent-gold);
+      font-size: 1.2em;
+      top: -10px;
+    }
+
+    .thank-you-ornament::before { left: -20px; }
+    .thank-you-ornament::after { right: -20px; }
+
+    .thank-you h2 {
+      font-family: 'Amiri', serif;
+      color: var(--primary-green);
+      font-size: 1.8em;
+      margin: 0;
+      font-weight: 700;
+      line-height: 1.6;
+      position: relative;
+      z-index: 2;
+    }
+
+    .thank-you-icon {
+      font-size: 3em;
+      color: var(--accent-gold);
+      margin-bottom: 1em;
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+    }
+
+    /* الاستجابة للشاشات المختلفة */
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2.2rem;
+      }
+
+      .header-section {
+        padding: 3em 1.5em;
+      }
+
+      .videos-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5em;
+        padding: 0 1em;
+      }
+
+      .video-card {
+        padding: 1.2em;
+      }
+
+      .back-button {
+        width: 50px;
+        height: 50px;
+        font-size: 1.2em;
+        top: 20px;
+        right: 20px;
+      }
+
+      .thank-you {
+        padding: 2em 1.5em;
+        margin: 3em 1em;
+      }
+    }
+
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 1.8rem;
+      }
+
+      .video-card h3 {
+        font-size: 1.1em;
+      }
+
+      .thank-you h2 {
+        font-size: 1.4em;
+      }
+
+      .play-overlay {
+        width: 60px;
+        height: 60px;
+        font-size: 1.5em;
+      }
+    }
+  </style>
+</head>
+<body>
+  <button class="back-button" onclick="history.back()">
+    <i class="fas fa-arrow-right"></i>
+  </button>
+
+  <div class="header-section">
+    <div class="header-ornament"></div>
+    <h1>فيديوهات قصيرة لتلاوات الشيخ المنشاوي</h1>
+  </div>
+
+  <div class="videos-grid">
+    <!-- الفيديوهات من 1 إلى 28 -->
+    <div class="video-card">
+      <h3>وَمَن يَدْعُ مَعَ اللَّهِ إِلَٰهًا آخَرَ .. سورة المؤمنون</h3>
+      <div class="video-wrapper">
+        <div class="play-overlay">
+          <i class="fas fa-play"></i>
+        </div>
+        <video controls>
+          <source src="videos/video1.mp4" type="video/mp4">
+          المتصفح لا يدعم تشغيل الفيديو.
+        </video>
+      </div>
+    </div>
+        
+    <div class="video-card">
+      <h3>إِلَّا تَنصُرُوهُ فَقَدْ نَصَرَهُ اللَّهُ .. سورة التوبة</h3>
+      <div class="video-wrapper">
+        <div class="play-overlay">
+          <i class="fas fa-play"></i>
+        </div>
+        <video controls>
+          <source src="videos/video2.mp4" type="video/mp4">
+          المتصفح لا يدعم تشغيل الفيديو.
+        </video>
+      </div>
+    </div>
+        
+    <div class="video-card">
+      <h3>وَلَا تَحْسَبَنَّ اللَّهَ غَافِلًا .. سورة إبراهيم</h3>
+      <div class="video-wrapper">
+        <div class="play-overlay">
+          <i class="fas fa-play"></i>
+        </div>
+        <video controls>
+          <source src="videos/video3.mp4" type="video/mp4">
+          المتصفح لا يدعم تشغيل الفيديو.
+        </video>
+      </div>
+    </div>
+        
+    <div class="video-card">
+      <h3>سورة العلق والقارعة</h3>
+      <div class="video-wrapper">
+        <div class="play-overlay">
+          <i class="fas fa-play"></i>
+        </div>
+        <video controls>
+          <source src="videos/video4.mp4" type="video/mp4">
+          المتصفح لا يدعم تشغيل الفيديو.
+        </video>
+      </div>
+    </div>
+        
+    <div class="video-card">
+      <h3>سورة النساء</h3>
+      <div class="video-wrapper">
+        <div class="play-overlay">
+          <i class="fas fa-play"></i>
+        </div>
+        <video controls>
+          <source src="videos/video5.mp4" type="video/mp4">
+          المتصفح لا يدعم تشغيل الفيديو.
+        </video>
+      </div>
+    </div>
+        
+    <div class="video-card">
+      <h3>سورة الحجرات</h3>
+      <div class="video-wrapper">
+        <div class="play-overlay">
+          <i class="fas fa-play"></i>
+        </div>
+        <video controls>
+          <source src="videos/video6.mp4" type="video/mp4">
+          المتصفح لا يدعم تشغيل الفيديو.
+        </video>
+      </div>
+    </div>
+        
+    <div class="video-card">
+      <h3>سورة البلد</h3>
+      <div class="video-wrapper">
+        <div class="play-overlay">
+          <i class="fas fa-play"></i>
+        </div>
+        <video controls>
+          <source src="videos/video7.mp4" type="video/mp4">
+          المتصفح لا يدعم تشغيل الفيديو.
+        </video>
+      </div>
+    </div>
+        
+    <div class="video-card">
+      <h3>سورة النحل</h3>
+      <div class="video-wrapper">
+        <div class="play-overlay">
+          <i class="fas fa-play"></i>
+        </div>
+        <video controls>
+          <source src="videos/video8.mp4" type="video/mp4">
+          المتصفح لا يدعم تشغيل الفيديو.
+        </video>
+      </div>
+    </div>
+        
+    <div class="video-card">
+      <h3>سورة المائدة</h3>
+      <div class="video-wrapper">
+        <div class="play-overlay">
+          <i class="fas fa-play"></i>
+        </div>
+        <video controls>
+          <source src="videos/video9.mp4" type="video/mp4">
+          المتصفح لا يدعم تشغيل الفيديو.
+        </video>
+      </div>
+    </div>
+        
+    <div class="video-card">
+      <h3>سورة المؤمنون</h3>
+      <div class="video-wrapper">
+        <div class="play-overlay">
+          <i class="fas fa-play"></i>
+        </div>
+        <video controls>
+          <source src="videos/video10.mp4" type="video/mp4">
+          المتصفح لا يدعم تشغيل الفيديو.
+        </video>
+      </div>
+    </div>
+        
+    <div class="video-card">
+      <h3>سورة الأنفال</h3>
+      <div class="video-wrapper">
+        <div class="play-overlay">
+          <i class="fas fa-play"></i>
+        </div>
+        <video controls>
+          <source src="videos/video11.mp4" type="video/mp4">
+          المتصفح لا يدعم تشغيل الفيديو.
+        </video>
+      </div>
+    </div>
+        
+    <div class="video-card">
+      <h3>سورة إبراهيم</h3>
+      <div class="video-wrapper">
+        <div class="play-overlay">
+          <i class="fas fa-play"></i>
+        </div>
+        <video controls>
+          <source src="videos/video12.mp4" type="video/mp4">
+          المتصفح لا يدعم تشغيل الفيديو.
+        </video>
+      </div>
+    </div>
+        
+    <div class="video-card">
+      <h3>سورة الأعراف</h3>
+      <div class="video-wrapper">
+        <div class="play-overlay">
+          <i class="fas fa-play"></i>
+        </div>
+        <video controls>
+          <source src="videos/video13.mp4" type="video/mp4">
+          المتصفح لا يدعم تشغيل الفيديو.
+        </video>
+      </div>
+    </div>
+        
+    <div class="video-card">
+      <h3>سورة البقرة</h3>
+      <div class="video-wrapper">
+        <div class="play-overlay">
+          <i class="fas fa-play"></i>
+        </div>
+        <video controls>
+          <source src="videos/video14.mp4" type="video/mp4">
+          المتصفح لا يدعم تشغيل الفيديو.
+        </video>
+      </div>
+    </div>
+        
+    <div class="video-card">
+      <h3>سورة الكهف</h3>
+      <div class="video-wrapper">
+        <div class="play-overlay">
+          <i class="fas fa-play"></i>
+        </div>
+        <video controls>
+          <source src="videos/video15.mp4" type="video/mp4">
+          المتصفح لا يدعم تشغيل الفيديو.
+        </video>
+      </div>
+    </div>
+        
+    <div class="video-card">
+      <h3>سورة آل عمران</h3>
+      <div class="video-wrapper">
+        <div class="play-overlay">
+          <i class="fas fa-play"></i>
+        </div>
+        <video controls>
+          <source src="videos/video16.mp4" type="video/mp4">
+          المتصفح لا يدعم تشغيل الفيديو.
+        </video>
+      </div>
+    </div>
+        
+    <div class="video-card">
+      <h3>سورة الفتح</h3>
+      <div class="video-wrapper">
+        <div class="play-overlay">
+          <i class="fas fa-play"></i>
+        </div>
+        <video controls>
+          <source src="videos/video17.mp4" type="video/mp4">
+          المتصفح لا يدعم تشغيل الفيديو.
+        </video>
+      </div>
+    </div>
+        
+    <div class="video-card">
+      <h3>سورة النحل</h3>
+      <div class="video-wrapper">
+        <div class="play-overlay">
+          <i class="fas fa-play"></i>
+        </div>
+        <video controls>
+          <source src="videos/video18.mp4" type="video/mp4">
+          المتصفح لا يدعم تشغيل الفيديو.
+        </video>
+      </div>
+    </div>
+        
+    <div class="video-card">
+      <h3>سورة البقرة</h3>
+      <div class="video-wrapper">
+        <div class="play-overlay">
+          <i class="fas fa-play"></i>
+        </div>
+        <video controls>
+          <source src="videos/video19.mp4" type="video/mp4">
+          المتصفح لا يدعم تشغيل الفيديو.
+        </video>
+      </div>
+    </div>
+        
+    <div class="video-card">
+      <h3>سورة الأنعام</h3>
+      <div class="video-wrapper">
+        <div class="play-overlay">
+          <i class="fas fa-play"></i>
+        </div>
+        <video controls>
+          <source src="videos/video20.mp4" type="video/mp4">
+          المتصفح لا يدعم تشغيل الفيديو.
+        </video>
+      </div>
+    </div>
+        
+    <div class="video-card">
+      <h3>سورة الحج</h3>
+      <div class="video-wrapper">
+        <div class="play-overlay">
+          <i class="fas fa-play"></i>
+        </div>
+        <video controls>
+          <source src="videos/video21.mp4" type="video/mp4">
+          المتصفح لا يدعم تشغيل الفيديو.
+        </video>
+      </div>
+    </div>
+        
+    <div class="video-card">
+      <h3>سورة آل عمران</h3>
+      <div class="video-wrapper">
+        <div class="play-overlay">
+          <i class="fas fa-play"></i>
+        </div>
+        <video controls>
+          <source src="videos/video22.mp4" type="video/mp4">
+          المتصفح لا يدعم تشغيل الفيديو.
+        </video>
+      </div>
+    </div>
+      
+    <div class="video-card">
+      <h3>سورة الأنفال</h3>
+      <div class="video-wrapper">
+        <div class="play-overlay">
+          <i class="fas fa-play"></i>
+        </div>
+        <video controls>
+          <source src="video/5.mp4" type="video/mp4">
+          المتصفح لا يدعم تشغيل الفيديو.
+        </video>
+      </div>
+    </div>
+          
+    <div class="video-card">
+      <h3>سورة مريم</h3>
+      <div class="video-wrapper">
+        <div class="play-overlay">
+          <i class="fas fa-play"></i>
+        </div>
+        <video controls>
+          <source src="video/3.mp4" type="video/mp4">
+          المتصفح لا يدعم تشغيل الفيديو.
+        </video>
+      </div>
+    </div>
+    
+    <div class="video-card">
+      <h3>سورة الشعراء</h3>
+      <div class="video-wrapper">
+        <div class="play-overlay">
+          <i class="fas fa-play"></i>
+        </div>
+        <video controls>
+          <source src="video/9.mp4" type="video/mp4">
+          المتصفح لا يدعم تشغيل الفيديو.
+        </video>
+      </div>
+    </div>
+        
+    <div class="video-card">
+      <h3>سورة السجدة</h3>
+      <div class="video-wrapper">
+        <div class="play-overlay">
+          <i class="fas fa-play"></i>
+        </div>
+        <video controls>
+          <source src="videos/video24.mp4" type="video/mp4">
+          المتصفح لا يدعم تشغيل الفيديو.
+        </video>
+      </div>
+    </div>
+        
+    <div class="video-card">
+      <h3>سورة المائدة</h3>
+      <div class="video-wrapper">
+        <div class="play-overlay">
+          <i class="fas fa-play"></i>
+        </div>
+        <video controls>
+          <source src="videos/video25.mp4" type="video/mp4">
+          المتصفح لا يدعم تشغيل الفيديو.
+        </video>
+      </div>
+    </div>
+        
+    <div class="video-card">
+      <h3>سورة الضحي والشرح</h3>
+      <div class="video-wrapper">
+        <div class="play-overlay">
+          <i class="fas fa-play"></i>
+        </div>
+        <video controls>
+          <source src="videos/video26.mp4" type="video/mp4">
+          المتصفح لا يدعم تشغيل الفيديو.
+        </video>
+      </div>
+    </div>
+        
+    <div class="video-card">
+      <h3>سورة البقرة</h3>
+      <div class="video-wrapper">
+        <div class="play-overlay">
+          <i class="fas fa-play"></i>
+        </div>
+        <video controls>
+          <source src="videos/video27.mp4" type="video/mp4">
+          المتصفح لا يدعم تشغيل الفيديو.
+        </video>
+      </div>
+    </div>
+        
+    <div class="video-card">
+      <h3>سورة التوبة</h3>
+      <div class="video-wrapper">
+        <div class="play-overlay">
+          <i class="fas fa-play"></i>
+        </div>
+        <video controls>
+          <source src="video/10.mp4" type="video/mp4">
+          المتصفح لا يدعم تشغيل الفيديو.
+        </video>
+      </div>
+    </div>
+        
+    <div class="video-card">
+      <h3>سورة آل عمران</h3>
+      <div class="video-wrapper">
+        <div class="play-overlay">
+          <i class="fas fa-play"></i>
+        </div>
+        <video controls>
+          <source src="video/1.mp4" type="video/mp4">
+          المتصفح لا يدعم تشغيل الفيديو.
+        </video>
+      </div>
+    </div>
+    
+    <div class="video-card">
+      <h3>سورة يوسف</h3>
+      <div class="video-wrapper">
+        <div class="play-overlay">
+          <i class="fas fa-play"></i>
+        </div>
+        <video controls>
+          <source src="video/11.mp4" type="video/mp4">
+          المتصفح لا يدعم تشغيل الفيديو.
+        </video>
+      </div>
+    </div>
+    
+    <div class="video-card">
+      <h3>سورة الروم</h3>
+      <div class="video-wrapper">
+        <div class="play-overlay">
+          <i class="fas fa-play"></i>
+        </div>
+        <video controls>
+          <source src="video/2.mp4" type="video/mp4">
+          المتصفح لا يدعم تشغيل الفيديو.
+        </video>
+      </div>
+    </div>
+            
+    <div class="video-card">
+      <h3>سورة مريم</h3>
+      <div class="video-wrapper">
+        <div class="play-overlay">
+          <i class="fas fa-play"></i>
+        </div>
+        <video controls>
+          <source src="video/3.mp4" type="video/mp4">
+          المتصفح لا يدعم تشغيل الفيديو.
+        </video>
+      </div>
+    </div>
+      
+    <div class="video-card">
+      <h3>سورة النساء</h3>
+      <div class="video-wrapper">
+        <div class="play-overlay">
+          <i class="fas fa-play"></i>
+        </div>
+        <video controls>
+          <source src="video/6.mp4" type="video/mp4">
+          المتصفح لا يدعم تشغيل الفيديو.
+        </video>
+      </div>
+    </div>
+        
+    <div class="video-card">
+      <h3>سورة ق و الرحمن</h3>
+      <div class="video-wrapper">
+        <div class="play-overlay">
+          <i class="fas fa-play"></i>
+        </div>
+        <video controls>
+          <source src="video/4.mp4" type="video/mp4">
+          المتصفح لا يدعم تشغيل الفيديو.
+        </video>
+      </div>
+    </div>
+      
+    <div class="video-card">
+      <h3>سورة الفجر</h3>
+      <div class="video-wrapper">
+        <div class="play-overlay">
+          <i class="fas fa-play"></i>
+        </div>
+        <video controls>
+          <source src="video/7.mp4" type="video/mp4">
+          المتصفح لا يدعم تشغيل الفيديو.
+        </video>
+      </div>
+    </div>
+      
+    <div class="video-card">
+      <h3>سورة التوبة</h3>
+      <div class="video-wrapper">
+        <div class="play-overlay">
+          <i class="fas fa-play"></i>
+        </div>
+        <video controls>
+          <source src="video/16.mp4" type="video/mp4">
+          المتصفح لا يدعم تشغيل الفيديو.
+        </video>
+      </div>
+    </div>
+  
+    <div class="video-card">
+      <h3>سورة النمل</h3>
+      <div class="video-wrapper">
+        <div class="play-overlay">
+          <i class="fas fa-play"></i>
+        </div>
+        <video controls>
+          <source src="video/17.mp4" type="video/mp4">
+          المتصفح لا يدعم تشغيل الفيديو.
+        </video>
+      </div>
+    </div>
+      
+    <div class="video-card">
+      <h3>سورة الأنفال</h3>
+      <div class="video-wrapper">
+        <div class="play-overlay">
+          <i class="fas fa-play"></i>
+        </div>
+        <video controls>
+          <source src="video/8.mp4" type="video/mp4">
+          المتصفح لا يدعم تشغيل الفيديو.
+        </video>
+      </div>
+    </div>
+  
+    <div class="video-card">
+      <h3>سورة مريم</h3>
+      <div class="video-wrapper">
+        <div class="play-overlay">
+          <i class="fas fa-play"></i>
+        </div>
+        <video controls>
+          <source src="video/18.mp4" type="video/mp4">
+          المتصفح لا يدعم تشغيل الفيديو.
+        </video>
+      </div>
+    </div>
+      
+    <div class="video-card">
+      <h3>سورة الفجر</h3>
+      <div class="video-wrapper">
+        <div class="play-overlay">
+          <i class="fas fa-play"></i>
+        </div>
+        <video controls>
+          <source src="video/7.mp4" type="video/mp4">
+          المتصفح لا يدعم تشغيل الفيديو.
+        </video>
+      </div>
+    </div>
+      
+    <div class="video-card">
+      <h3>سورة يونس</h3>
+      <div class="video-wrapper">
+        <div class="play-overlay">
+          <i class="fas fa-play"></i>
+        </div>
+        <video controls>
+          <source src="video/26.mp4" type="video/mp4">
+          المتصفح لا يدعم تشغيل الفيديو.
+        </video>
+      </div>
+    </div>
+      
+    <div class="video-card">
+      <h3>سورة التحريم</h3>
+      <div class="video-wrapper">
+        <div class="play-overlay">
+          <i class="fas fa-play"></i>
+        </div>
+        <video controls>
+          <source src="video/21.mp4" type="video/mp4">
+          المتصفح لا يدعم تشغيل الفيديو.
+        </video>
+      </div>
+    </div>
+      
+    <div class="video-card">
+      <h3>سورة فصلت</h3>
+      <div class="video-wrapper">
+        <div class="play-overlay">
+          <i class="fas fa-play"></i>
+        </div>
+        <video controls>
+          <source src="video/22.mp4" type="video/mp4">
+          المتصفح لا يدعم تشغيل الفيديو.
+        </video>
+      </div>
+    </div>
+      
+    <div class="video-card">
+      <h3>سورة الإسراء</h3>
+      <div class="video-wrapper">
+        <div class="play-overlay">
+          <i class="fas fa-play"></i>
+        </div>
+        <video controls>
+          <source src="video/15.mp4" type="video/mp4">
+          المتصفح لا يدعم تشغيل الفيديو.
+        </video>
+      </div>
+    </div>
+      
+    <div class="video-card">
+      <h3>سورة القصص</h3>
+      <div class="video-wrapper">
+        <div class="play-overlay">
+          <i class="fas fa-play"></i>
+        </div>
+        <video controls>
+          <source src="video/25.mp4" type="video/mp4">
+          المتصفح لا يدعم تشغيل الفيديو.
+        </video>
+      </div>
+    </div>
+        
+    <div class="video-card">
+      <h3>سورة المائدة</h3>
+      <div class="video-wrapper">
+        <div class="play-overlay">
+          <i class="fas fa-play"></i>
+        </div>
+        <video controls>
+          <source src="videos/video28.mp4" type="video/mp4">
+          المتصفح لا يدعم تشغيل الفيديو.
+        </video>
+      </div>
+    </div>
+  </div>
+
+  <!-- قسم الشكر -->
+  <div class="thank-you">
+    <div class="thank-you-ornament"></div>
+    <div class="thank-you-icon">
+      <i class="fas fa-heart"></i>
+    </div>
+    <h2>جزى الله صناع تلكم الفيديوهات كل الخير وجعلها في ميزان حسناتهم</h2>
+  </div>
+
+  <!-- JavaScript لإيقاف الفيديوهات الأخرى عند التشغيل -->
+  <script>
+    const videos = document.querySelectorAll("video");
+    
+    videos.forEach(video => {
+      video.addEventListener("play", () => {
+        videos.forEach(v => {
+          if (v !== video) {
+            v.pause();
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>

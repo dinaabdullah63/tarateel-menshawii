@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>المصحف الْمُجَوِّدَ - المنشاوي</title>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --primary-green: #0d5f3c;
+      --secondary-green: #10b981;
+      --accent-gold: #d4af37;
+      --light-green: #f0fdf4;
+      --text-dark: #1f2937;
+      --text-light: #6b7280;
+      --white: #ffffff;
+      --gradient-primary: linear-gradient(135deg, #0d5f3c 0%, #10b981 100%);
+      --gradient-gold: linear-gradient(135deg, #d4af37 0%, #f59e0b 100%);
+    }
+
+    body {
+      font-family: 'Cairo', sans-serif;
+      background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 50%, #f1f5f9 100%);
+      color: var(--text-dark);
+      line-height: 1.7;
+      min-height: 100vh;
+      position: relative;
+    }
+
+    /* خلفية النجوم المتحركة */
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="0.5" fill="%23d4af37" opacity="0.3"/><circle cx="80" cy="40" r="0.3" fill="%23ffffff" opacity="0.4"/></svg>') repeat;
+      background-size: 200px 200px;
+      animation: float-stars 40s linear infinite;
+      z-index: -1;
+    }
+
+    @keyframes float-stars {
+      from { transform: translateY(0px); }
+      to { transform: translateY(-2000px); }
+    }
+
+    .header-section {
+      background: var(--gradient-primary);
+      padding: 4em 2em;
+      text-align: center;
+      color: white;
+      position: relative;
+      overflow: hidden;
+      margin-bottom: 3em;
+    }
+
+    .header-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M50 10 L60 40 L90 40 L68 58 L78 88 L50 70 L22 88 L32 58 L10 40 L40 40 Z" fill="none" stroke="%23d4af37" stroke-width="0.5" opacity="0.2"/></svg>') repeat;
+      background-size: 100px 100px;
+      animation: float-pattern 20s ease-in-out infinite;
+    }
+
+    @keyframes float-pattern {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-10px) rotate(2deg); }
+    }
+
+    .header-ornament {
+      width: 100px;
+      height: 4px;
+      background: var(--gradient-gold);
+      margin: 0 auto 2em auto;
+      border-radius: 2px;
+      position: relative;
+    }
+
+    .header-ornament::before,
+    .header-ornament::after {
+      content: '✦';
+      position: absolute;
+      color: var(--accent-gold);
+      font-size: 1.5em;
+      top: -12px;
+    }
+
+    .header-ornament::before { left: -25px; }
+    .header-ornament::after { right: -25px; }
+
+    h1 {
+      font-family: 'Amiri', serif;
+      font-size: 3.5rem;
+      font-weight: 700;
+      margin-bottom: 0.5em;
+      text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+      position: relative;
+      z-index: 2;
+      animation: glow-text 3s ease-in-out infinite alternate;
+    }
+
+    @keyframes glow-text {
+      from { text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3); }
+      to { text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3), 0 0 30px rgba(212, 175, 55, 0.4); }
+    }
+
+    .subtitle {
+      font-size: 1.4em;
+      font-weight: 400;
+      opacity: 0.95;
+      position: relative;
+      z-index: 2;
+    }
+
+    .back-button {
+      position: fixed;
+      top: 30px;
+      right: 30px;
+      background: var(--gradient-primary);
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      font-size: 1.5em;
+      cursor: pointer;
+      box-shadow: 0 10px 30px rgba(13, 95, 60, 0.3);
+      transition: all 0.3s ease;
+      z-index: 1000;
+    }
+
+    .back-button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 40px rgba(13, 95, 60, 0.4);
+    }
+
+    .sura-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 2em;
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 2em 4em 2em;
+    }
+
+    .sura-card {
+      background: var(--white);
+      padding: 2em;
+      border-radius: 20px;
+      box-shadow: 0 10px 40px rgba(13, 95, 60, 0.1);
+      border: 1px solid rgba(16, 185, 129, 0.1);
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .sura-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: var(--gradient-primary);
+      transform: scaleX(0);
+      transition: transform 0.5s ease;
+    }
+
+    .sura-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .sura-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 60px rgba(13, 95, 60, 0.15);
+      border-color: rgba(16, 185, 129, 0.3);
+    }
+
+    .sura-card h3 {
+      font-family: 'Amiri', serif;
+      font-size: 1.5em;
+      color: var(--primary-green);
+      margin-bottom: 1.5em;
+      text-align: center;
+      font-weight: 700;
+      position: relative;
+      padding-bottom: 1em;
+    }
+
+    .sura-card h3::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 2px;
+      background: var(--gradient-gold);
+      border-radius: 1px;
+    }
+
+    .sura-number {
+      background: var(--gradient-primary);
+      color: white;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1em;
+      font-weight: 600;
+      margin-left: 15px;
+      box-shadow: 0 6px 20px rgba(16, 185, 129, 0.3);
+      position: relative;
+    }
+
+    .sura-number::before {
+      content: '';
+      position: absolute;
+      top: -3px;
+      left: -3px;
+      right: -3px;
+      bottom: -3px;
+      background: var(--gradient-gold);
+      border-radius: 50%;
+      z-index: -1;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .sura-card:hover .sura-number::before {
+      opacity: 1;
+    }
+
+    audio {
+      width: 100%;
+      margin-top: 1em;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .loading {
+      text-align: center;
+      color: var(--secondary-green);
+      font-style: italic;
+      margin-top: 1em;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5em;
+    }
+
+    .loading::before {
+      content: '';
+      width: 20px;
+      height: 20px;
+      border: 2px solid var(--secondary-green);
+      border-top: 2px solid transparent;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    .error {
+      text-align: center;
+      color: #dc3545;
+      font-size: 0.9em;
+      margin-top: 1em;
+      padding: 1em;
+      background: rgba(220, 53, 69, 0.1);
+      border-radius: 10px;
+      border: 1px solid rgba(220, 53, 69, 0.2);
+    }
+
+    /* الاستجابة للشاشات المختلفة */
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2.5rem;
+      }
+
+      .header-section {
+        padding: 3em 1.5em;
+      }
+
+      .sura-list {
+        grid-template-columns: 1fr;
+        gap: 1.5em;
+        padding: 0 1em 3em 1em;
+      }
+
+      .sura-card {
+        padding: 1.5em;
+      }
+
+      .back-button {
+        width: 50px;
+        height: 50px;
+        font-size: 1.2em;
+        top: 20px;
+        right: 20px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 2rem;
+      }
+
+      .subtitle {
+        font-size: 1.2em;
+      }
+
+      .sura-card h3 {
+        font-size: 1.3em;
+      }
+
+      .sura-number {
+        width: 35px;
+        height: 35px;
+        font-size: 0.9em;
+      }
+    }
+  </style>
+</head>
+<body>
+  <button class="back-button" onclick="history.back()">
+    <i class="fas fa-arrow-right"></i>
+  </button>
+
+  <div class="header-section">
+    <div class="header-ornament"></div>
+    <h1>الْمُصْحَفَ الْمُجَوِّدَ</h1>
+    <p class="subtitle">بصوت الشيخ محمد صديق المنشاوي</p>
+  </div>
+
+  <div class="sura-list" id="suraList"></div>
+
+  <script>
+    const suraNames = [
+      "الفاتحة", "البقرة", "آل عمران", "النساء", "المائدة", "الأنعام", "الأعراف", "الأنفال", "التوبة", "يونس",
+      "هود", "يوسف", "الرعد", "إبراهيم", "الحجر", "النحل", "الإسراء", "الكهف", "مريم", "طه",
+      "الأنبياء", "الحج", "المؤمنون", "النور", "الفرقان", "الشعراء", "النمل", "القصص", "العنكبوت", "الروم",
+      "لقمان", "السجدة", "الأحزاب", "سبأ", "فاطر", "يس", "الصافات", "ص", "الزمر", "غافر",
+      "فصلت", "الشورى", "الزخرف", "الدخان", "الجاثية", "الأحقاف", "محمد", "الفتح", "الحجرات", "ق",
+      "الذاريات", "الطور", "النجم", "القمر", "الرحمن", "الواقعة", "الحديد", "المجادلة", "الحشر", "الممتحنة",
+      "الصف", "الجمعة", "المنافقون", "التغابن", "الطلاق", "التحريم", "الملك", "القلم", "الحاقة", "المعارج",
+      "نوح", "الجن", "المزمل", "المدثر", "القيامة", "الإنسان", "المرسلات", "النبأ", "النازعات", "عبس",
+      "التكوير", "الانفطار", "المطففين", "الانشقاق", "البروج", "الطارق", "الأعلى", "الغاشية", "الفجر", "البلد",
+      "الشمس", "الليل", "الضحى", "الشرح", "التين", "العلق", "القدر", "البينة", "الزلزلة", "العاديات",
+      "القارعة", "التكاثر", "العصر", "الهمزة", "الفيل", "قريش", "الماعون", "الكوثر", "الكافرون", "النصر",
+      "المسد", "الإخلاص", "الفلق", "الناس"
+    ];
+
+    const baseUrl = "https://archive.org/download/lifeways11_gmail_001_20180201_0039/";
+    const listContainer = document.getElementById("suraList");
+
+    function formatSuraNumber(number) {
+      return String(number).padStart(3, '0');
+    }
+
+    function getAudioUrl(suraNumber) {
+      return baseUrl + formatSuraNumber(suraNumber) + ".mp3";
+    }
+
+    suraNames.forEach((name, index) => {
+      const suraNumber = index + 1;
+      const audioUrl = getAudioUrl(suraNumber);
+      
+      const card = document.createElement("div");
+      card.className = "sura-card";
+      
+      card.innerHTML = `
+        <h3>
+          <span class="sura-number">${suraNumber}</span>
+          سورة ${name}
+        </h3>
+        <div class="loading" id="loading-${suraNumber}">جاري التحميل</div>
+        <audio controls style="display: none;" id="audio-${suraNumber}">
+          <source src="${audioUrl}" type="audio/mp3">
+          متصفحك لا يدعم تشغيل الصوت.
+        </audio>
+        <div class="error" id="error-${suraNumber}" style="display: none;">
+          <i class="fas fa-exclamation-triangle"></i>
+          عذراً، حدث خطأ في تحميل التلاوة
+        </div>
+      `;
+      
+      listContainer.appendChild(card);
+      
+      const audio = document.getElementById(`audio-${suraNumber}`);
+      const loading = document.getElementById(`loading-${suraNumber}`);
+      const error = document.getElementById(`error-${suraNumber}`);
+      
+      audio.addEventListener('loadstart', () => {
+        loading.style.display = 'flex';
+        error.style.display = 'none';
+      });
+      
+      audio.addEventListener('canplay', () => {
+        loading.style.display = 'none';
+        audio.style.display = 'block';
+      });
+      
+      audio.addEventListener('error', () => {
+        loading.style.display = 'none';
+        error.style.display = 'block';
+      });
+      
+      audio.load();
+    });
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const allAudios = document.querySelectorAll('audio');
+      
+      allAudios.forEach(audio => {
+        audio.addEventListener('play', () => {
+          allAudios.forEach(otherAudio => {
+            if (otherAudio !== audio) {
+              otherAudio.pause();
+            }
+          });
+        });
+      });
+    });
+  </script>
+</body>
+</html>
